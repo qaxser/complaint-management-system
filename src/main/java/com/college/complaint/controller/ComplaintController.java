@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 public class ComplaintController {
     
-    // Dependency Injection using @Autowired
+    
     private final ComplaintService complaintService;
     
     @Autowired
@@ -21,9 +21,6 @@ public class ComplaintController {
         this.complaintService = complaintService;
     }
     
-    /**
-     * Display home page with complaint form
-     */
     @GetMapping("/")
     public String showHomePage(Model model) {
         model.addAttribute("complaint", new Complaint());
@@ -31,9 +28,6 @@ public class ComplaintController {
         return "index";
     }
     
-    /**
-     * Handle complaint submission
-     */
     @PostMapping("/submit-complaint")
     public String submitComplaint(@ModelAttribute Complaint complaint, Model model) {
         complaintService.saveComplaint(complaint);
@@ -43,9 +37,6 @@ public class ComplaintController {
         return "index";
     }
     
-    /**
-     * Display all complaints
-     */
     @GetMapping("/complaints")
     public String viewComplaints(Model model) {
         List<Complaint> complaints = complaintService.getAllComplaints();
@@ -54,9 +45,6 @@ public class ComplaintController {
         return "complaints";
     }
     
-    /**
-     * Filter complaints by category
-     */
     @GetMapping("/complaints/filter")
     public String filterComplaints(@RequestParam(required = false) String category,
                                    @RequestParam(required = false) String department,

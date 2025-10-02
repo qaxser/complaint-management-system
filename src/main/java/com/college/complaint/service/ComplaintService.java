@@ -83,9 +83,6 @@ public class ComplaintService {
         return false;
     }
     
-    /**
-     * Get total complaint count
-     */
     public int getComplaintCount() {
         return complaints.size();
     }

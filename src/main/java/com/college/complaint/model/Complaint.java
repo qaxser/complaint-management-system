@@ -3,9 +3,6 @@ package com.college.complaint.model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Model class representing a student complaint
- */
 public class Complaint {
     
     private Long id;
@@ -16,7 +13,6 @@ public class Complaint {
     private String status;
     private LocalDateTime submittedAt;
     
-    // Constructors
     public Complaint() {
         this.submittedAt = LocalDateTime.now();
         this.status = "Pending";
@@ -33,7 +29,6 @@ public class Complaint {
         this.status = "Pending";
     }
     
-    // Getters and Setters
     public Long getId() {
         return id;
     }
