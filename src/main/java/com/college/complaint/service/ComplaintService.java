@@ -5,17 +5,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 
 
 @Service
 public class ComplaintService {
     
     private final List<Complaint> complaints = new ArrayList<>();
-    private final AtomicLong idCounter = new AtomicLong(1);
     
     public Complaint saveComplaint(Complaint complaint) {
-        complaint.setId(idCounter.getAndIncrement());
         complaints.add(complaint);
         System.out.println("Complaint saved: " + complaint);
         return complaint;
@@ -23,13 +20,6 @@ public class ComplaintService {
     
     public List<Complaint> getAllComplaints() {
         return new ArrayList<>(complaints);
-    }
-    
-    public Complaint getComplaintById(Long id) {
-        return complaints.stream()
-                .filter(c -> c.getId().equals(id))
-                .findFirst()
-                .orElse(null);
     }
     
     public List<Complaint> getComplaintsByCategory(String category) {
@@ -50,15 +40,6 @@ public class ComplaintService {
             }
         }
         return filtered;
-    }
-    
-    public boolean updateComplaintStatus(Long id, String status) {
-        Complaint complaint = getComplaintById(id);
-        if (complaint != null) {
-            complaint.setStatus(status);
-            return true;
-        }
-        return false;
     }
     
     public int getComplaintCount() {
