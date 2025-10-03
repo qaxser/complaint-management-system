@@ -208,7 +208,7 @@
         
         <div class="toolbar">
             <div class="filter-section">
-                <form action="/complaints/filter" method="get" style="display: flex; gap: 10px;">
+                <form action="/complaints/filter" method="get" style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <select name="category" class="filter-select">
                         <option value="">All Categories</option>
                         <option value="Wi-Fi Issues">Wi-Fi Issues</option>
@@ -222,7 +222,17 @@
                         <option value="Faculty">Faculty</option>
                         <option value="Other">Other</option>
                     </select>
+                    <select name="department" class="filter-select">
+                        <option value="">All Departments</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Mechanical">Mechanical</option>
+                        <option value="Civil">Civil</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Electrical">Electrical</option>
+                    </select>
                     <button type="submit" class="btn btn-primary">Filter</button>
+                    <a href="/complaints" class="btn btn-secondary">Clear Filters</a>
                 </form>
             </div>
             <a href="/" class="btn btn-primary">Submit New Complaint</a>
