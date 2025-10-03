@@ -240,7 +240,7 @@
         
         <div class="complaints-section">
             <div class="stats-bar">
-                Total Complaints: ${totalComplaints}
+                📊 Total Complaints: ${totalComplaints}
                 <c:if test="${filterApplied}"> (Filtered Results)</c:if>
             </div>
             
@@ -256,12 +256,7 @@
                 <c:otherwise>
                     <c:forEach var="complaint" items="${complaints}">
                         <div class="complaint-card">
-                            <div class="complaint-header">
-                                <div class="complaint-id">Complaint #${complaint.id}</div>
-                                <div class="status-badge status-pending">${complaint.status}</div>
-                            </div>
-                            
-                            <div class="complaint-info">
+                        <div class="complaint-info">
                                 <div class="info-item">
                                     <div class="info-label">👤 Student Name</div>
                                     <div class="info-value">${complaint.studentName}</div>

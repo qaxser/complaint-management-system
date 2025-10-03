@@ -5,36 +5,23 @@ import java.time.format.DateTimeFormatter;
 
 public class Complaint {
     
-    private Long id;
     private String studentName;
     private String department;
     private String category;
     private String description;
-    private String status;
     private LocalDateTime submittedAt;
     
     public Complaint() {
         this.submittedAt = LocalDateTime.now();
-        this.status = "Pending";
     }
     
-    public Complaint(Long id, String studentName, String department, 
+    public Complaint(String studentName, String department, 
                      String category, String description) {
-        this.id = id;
         this.studentName = studentName;
         this.department = department;
         this.category = category;
         this.description = description;
         this.submittedAt = LocalDateTime.now();
-        this.status = "Pending";
-    }
-    
-    public Long getId() {
-        return id;
-    }
-    
-    public void setId(Long id) {
-        this.id = id;
     }
     
     public String getStudentName() {
@@ -69,14 +56,6 @@ public class Complaint {
         this.description = description;
     }
     
-    public String getStatus() {
-        return status;
-    }
-    
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    
     public LocalDateTime getSubmittedAt() {
         return submittedAt;
     }
@@ -93,11 +72,9 @@ public class Complaint {
     @Override
     public String toString() {
         return "Complaint{" +
-                "id=" + id +
-                ", studentName='" + studentName + '\'' +
+                "studentName='" + studentName + '\'' +
                 ", department='" + department + '\'' +
                 ", category='" + category + '\'' +
-                ", status='" + status + '\'' +
                 ", submittedAt=" + submittedAt +
                 '}';
     }
